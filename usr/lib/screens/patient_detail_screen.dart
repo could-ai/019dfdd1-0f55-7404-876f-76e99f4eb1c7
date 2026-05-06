@@ -6,7 +6,7 @@ import '../models.dart';
 class PatientDetailScreen extends StatelessWidget {
   final String motherId;
 
-  const PatientDetailScreen({super.key, required this motherId});
+  const PatientDetailScreen({super.key, required this.motherId});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class PatientDetailScreen extends StatelessWidget {
             Text('Name: ${mother.name}'),
             Text('Phone: ${mother.phone}'),
             Text('Location: ${mother.location}'),
-            Text('EDD: ${mother.estimatedDeliveryDate.toLocal().toString().split(' ')[0]}'),
+            Text('EDD: ${mother.edd.toLocal().toString().split(' ')[0]}'),
           ],
         ),
       ),

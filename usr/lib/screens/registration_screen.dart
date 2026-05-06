@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
 import '../app_state.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -28,7 +27,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   void _submit() {
     if (_formKey.currentState!.validate() && _selectedEDD != null) {
       final state = Provider.of<AppState>(context, listen: false);
-      state.registerMother(
+      state.addMother(
         name: _nameController.text,
         phone: _phoneController.text,
         edd: _selectedEDD!,
@@ -111,7 +110,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                   child: Text(
                     _selectedEDD != null 
-                        ? DateFormat('MMM dd, yyyy').format(_selectedEDD!) 
+                        ? _selectedEDD!.toLocal().toString().split(' ')[0]
                         : 'Select Date',
                   ),
                 ),

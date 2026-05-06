@@ -30,6 +30,17 @@ class AppState extends ChangeNotifier {
         .toList();
   }
 
+  Mother getMother(String id) => _mothers.firstWhere((m) => m.id == id);
+
+  List<Child> getChildrenForMother(String motherId) => 
+      _children.where((c) => c.motherId == motherId).toList();
+
+  List<Visit> getVisitsForPatient(String patientId) => 
+      _visits.where((v) => v.patientId == patientId).toList();
+
+  List<Schedule> getSchedulesForPatient(String patientId) => 
+      _schedules.where((s) => s.patientId == patientId).toList();
+
   void addMother(String name, String phone, DateTime edd, String location) {
     final motherId = _uuid.v4();
     final mother = Mother(

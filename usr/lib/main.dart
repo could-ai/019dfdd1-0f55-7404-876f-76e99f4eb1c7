@@ -30,8 +30,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       onGenerateRoute: (settings) {
         if (settings.name == '/patient_detail') {
-          final args = settings.arguments as Map<String, dynamic>?;
-          final motherId = args?['motherId'] as String?;
+          final motherId = settings.arguments as String?;
           if (motherId != null) {
             return MaterialPageRoute(
               builder: (context) => PatientDetailScreen(motherId: motherId),
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
       },
       routes: {
         '/': (context) => const DashboardScreen(),
-        '/registration': (context) => const RegistrationScreen(),
+        '/register': (context) => const RegistrationScreen(),
       },
     );
   }

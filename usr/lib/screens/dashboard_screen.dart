@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
 import '../app_state.dart';
 import '../models.dart';
 
@@ -86,7 +85,7 @@ class DashboardScreen extends StatelessWidget {
                             child: ListTile(
                               leading: const CircleAvatar(child: Icon(Icons.person)),
                               title: Text(mother.name),
-                              subtitle: Text('EDD: ${DateFormat('MMM dd, yyyy').format(mother.edd)}\nLocation: ${mother.location}'),
+                              subtitle: Text('EDD: ${mother.edd.toLocal().toString().split(' ')[0]}\nLocation: ${mother.location}'),
                               isThreeLine: true,
                               trailing: const Icon(Icons.chevron_right),
                               onTap: () {
